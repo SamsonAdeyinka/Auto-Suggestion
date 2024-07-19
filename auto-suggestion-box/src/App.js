@@ -24,14 +24,17 @@ function App() {
     const [inputValue, setInputValue] = useState("");
     const [isFocus, setIsFocus] = useState(false);
 
-
     const handleInputValue = (e) => {
       setInputValue(e.target.value);
     };
 
     const filterData = (data, query) => {
       if (!query) {
-        return data;
+        return {
+          suggestion: [],
+          collection: [],
+          product: [],
+        };
       }
 
       const lowerCaseQuery = query.toLowerCase();
@@ -64,27 +67,26 @@ function App() {
         />
         {isFocus && (
           <div className="p-4 shadow-lg">
-          <h3>Suggestion</h3>
-          <ul>
-            {filteredData.suggestion.map((item, index) => (
-              <li key={index}>{item.term}</li>
-            ))}
-          </ul>
-          <h3>Collection</h3>
-          <ul>
-            {filteredData.collection.map((item, index) => (
-              <li key={index}>{item.title}</li>
-            ))}
-          </ul>
-          <h3>Product</h3>
-          <ul>
-            {filteredData.product.map((item, index) => (
-              <li key={index}>{item.title}</li>
-            ))}
-          </ul>
-        </div>
+            <h3>Suggestion</h3>
+            <ul>
+              {filteredData.suggestion.map((item, index) => (
+                <li key={index}>{item.term}</li>
+              ))}
+            </ul>
+            <h3>Collection</h3>
+            <ul>
+              {filteredData.collection.map((item, index) => (
+                <li key={index}>{item.title}</li>
+              ))}
+            </ul>
+            <h3>Product</h3>
+            <ul>
+              {filteredData.product.map((item, index) => (
+                <li key={index}>{item.title}</li>
+              ))}
+            </ul>
+          </div>
         )}
-        
       </div>
     );
   };

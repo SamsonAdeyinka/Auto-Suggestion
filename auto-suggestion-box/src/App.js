@@ -23,6 +23,11 @@ function App() {
   const AutoSuggestion = () => {
     const [inputValue, setInputValue] = useState("");
     const [isFocus, setIsFocus] = useState(false);
+    const [settings] = useState({
+      showSuggestion: true,
+      showCollection: true,
+      showProduct: true,
+    });
 
     const handleInputValue = (e) => {
       setInputValue(e.target.value);
@@ -67,24 +72,36 @@ function App() {
         />
         {isFocus && (
           <div className="p-4 shadow-lg">
-            <h3>Suggestion</h3>
-            <ul>
-              {filteredData.suggestion.map((item, index) => (
-                <li key={index}>{item.term}</li>
-              ))}
-            </ul>
-            <h3>Collection</h3>
-            <ul>
-              {filteredData.collection.map((item, index) => (
-                <li key={index}>{item.title}</li>
-              ))}
-            </ul>
-            <h3>Product</h3>
-            <ul>
-              {filteredData.product.map((item, index) => (
-                <li key={index}>{item.title}</li>
-              ))}
-            </ul>
+            {settings.showSuggestion && (
+              <div>
+                <h3>Suggestion</h3>
+                <ul>
+                  {filteredData.suggestion.map((item, index) => (
+                    <li key={index}>{item.term}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            {settings.showCollection && (
+              <div>
+                <h3>Collection</h3>
+                <ul>
+                  {filteredData.collection.map((item, index) => (
+                    <li key={index}>{item.title}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            {settings.showProduct && (
+              <div>
+                <h3>Product</h3>
+                <ul>
+                  {filteredData.product.map((item, index) => (
+                    <li key={index}>{item.title}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
         )}
       </div>

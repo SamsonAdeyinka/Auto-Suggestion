@@ -14,9 +14,9 @@ function App() {
       { id: 3, title: "collection 3", url: "/collectionthree" },
     ],
     product: [
-      { id: 1, title: "tank top", url: "/productone" },
-      { id: 2, title: "product 2", url: "/producttwo" },
-      { id: 3, title: "product 3", url: "/productthree" },
+      { id: 1, title: "tank top", url: "/productone", brand: "Nike", price: ""},
+      { id: 2, title: "product 2", url: "/producttwo", brand: "Adidas"},
+      { id: 3, title: "product 3", url: "/productthree", brand: "Vans"},
     ],
   };
 
@@ -60,21 +60,23 @@ function App() {
     const filteredData = filterData(sampleData, inputValue);
 
     return (
-      <div>
-        <label>Product Search</label>
+      <div className="bg-teal-500 h-dvh p-10 content-center">
+        <label className="text-gray-200" >Product Search</label>
         <input
           type="text"
           value={inputValue}
           onChange={handleInputValue}
           onFocus={() => setIsFocus(true)}
-          className="mr-6 mt-6 bg-gray-50 border rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+          className="mr-6 mt-6 border rounded-lg block w-full p-2.5"
           placeholder="Type product..."
         />
         {isFocus && (
-          <div className="p-4 shadow-lg">
+          <div className="p-4 shadow-lg bg-gray-50/75 mt-1 rounded">
             {settings.showSuggestion && (
               <div>
-                <h3>Suggestion</h3>
+                <div className="bg-gray-500 p-2 rounded">
+                  <h3 className="text-center text-slate-300">Suggestion</h3>
+                </div>
                 <ul>
                   {filteredData.suggestion.map((item, index) => (
                     <li key={index}>{item.term}</li>
@@ -84,7 +86,9 @@ function App() {
             )}
             {settings.showCollection && (
               <div>
-                <h3>Collection</h3>
+                <div className="bg-gray-500 p-2 rounded">
+                  <h3 className="text-center text-slate-300">Collection</h3>
+                </div>
                 <ul>
                   {filteredData.collection.map((item, index) => (
                     <li key={index}>{item.title}</li>
@@ -94,7 +98,9 @@ function App() {
             )}
             {settings.showProduct && (
               <div>
-                <h3>Product</h3>
+                <div className="bg-gray-500 p-2 rounded">
+                  <h3 className="text-center text-slate-300">Product</h3>
+                </div>
                 <ul>
                   {filteredData.product.map((item, index) => (
                     <li key={index}>{item.title}</li>
@@ -110,7 +116,7 @@ function App() {
 
   return (
     <div className="App">
-      <div className="m-6">
+      <div className="m-3">
         <AutoSuggestion />
       </div>
     </div>

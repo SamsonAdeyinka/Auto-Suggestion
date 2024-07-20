@@ -1,24 +1,8 @@
 import { useState } from "react";
 import "./App.css";
+import sampleData from "./sampleData.json";
 
 function App() {
-  const sampleData = {
-    suggestion: [
-      { term: "red top", url: "/termone" },
-      { term: "term 2", url: "/termtwo" },
-      { term: "term 3", url: "/termthree" },
-    ],
-    collection: [
-      { id: 1, title: "tops", url: "/collectionone" },
-      { id: 2, title: "collection 2", url: "/collectiontwo" },
-      { id: 3, title: "collection 3", url: "/collectionthree" },
-    ],
-    product: [
-      { id: 1, title: "tank top", url: "/productone", brand: "Nike", price: ""},
-      { id: 2, title: "product 2", url: "/producttwo", brand: "Adidas"},
-      { id: 3, title: "product 3", url: "/productthree", brand: "Vans"},
-    ],
-  };
 
   const AutoSuggestion = () => {
     const [inputValue, setInputValue] = useState("");
@@ -33,7 +17,10 @@ function App() {
       setInputValue(e.target.value);
     };
 
-    const filterData = (data, query) => {
+    const jsondata = sampleData[0];
+
+
+    const filterData = (jsondata, query) => {
       if (!query) {
         return {
           suggestion: [],
@@ -45,23 +32,23 @@ function App() {
       const lowerCaseQuery = query.toLowerCase();
 
       return {
-        suggestion: data.suggestion.filter((item) =>
+        suggestion: jsondata.suggestion.filter((item) =>
           item.term.toLowerCase().includes(lowerCaseQuery)
         ),
-        collection: data.collection.filter((item) =>
+        collection: jsondata.collection.filter((item) =>
           item.title.toLowerCase().includes(lowerCaseQuery)
         ),
-        product: data.product.filter((item) =>
+        product: jsondata.product.filter((item) =>
           item.title.toLowerCase().includes(lowerCaseQuery)
         ),
       };
     };
 
-    const filteredData = filterData(sampleData, inputValue);
+    const filteredData = filterData(jsondata, inputValue);
 
     return (
       <div className="bg-teal-500 h-dvh p-10 content-center">
-        <label className="text-gray-200" >Product Search</label>
+        <label className="text-gray-200">Product Search</label>
         <input
           type="text"
           value={inputValue}
@@ -79,7 +66,7 @@ function App() {
                 </div>
                 <ul>
                   {filteredData.suggestion.map((item, index) => (
-                    <li key={index}>{item.term}</li>
+                    <a href={item.url}><li className="hover:bg-gray-100 py-3 px-3 rounded" key={index}>{item.term}</li></a>
                   ))}
                 </ul>
               </div>
@@ -91,7 +78,7 @@ function App() {
                 </div>
                 <ul>
                   {filteredData.collection.map((item, index) => (
-                    <li key={index}>{item.title}</li>
+                    <a href={item.url}><li className="hover:bg-gray-100 py-3 px-3 rounded" key={index}>{item.title}</li></a>
                   ))}
                 </ul>
               </div>
@@ -103,7 +90,19 @@ function App() {
                 </div>
                 <ul>
                   {filteredData.product.map((item, index) => (
-                    <li key={index}>{item.title}</li>
+                    <a href={item.url}>
+                      <li className="hover:bg-gray-100 py-3 px-3 rounded" key={index}>
+                        <div className="flex flex-row">
+                          <img className="basis-1/4 max-w-32" src={item.img} alt="" />
+                          <div className="basis-1/4 ml-3">
+                            <h2 className="text-lg font-bold">{item.title}</h2>
+                            <h2>Brand: {item.brand}</h2>
+                            <h2 className="text-blue-500">{item.price}</h2>
+                          </div>
+                        </div>                                              
+                      </li>
+                    </a>
+                    
                   ))}
                 </ul>
               </div>

@@ -1,0 +1,129 @@
+[
+  {
+    "suggestion": [
+      {
+        "term": "nisi",
+        "url": "/termone"
+      },
+      {
+        "term": "reprehenderit",
+        "url": "/termone"
+      },
+      {
+        "term": "officia",
+        "url": "/termone"
+      },
+      {
+        "term": "sint",
+        "url": "/termone"
+      },
+      {
+        "term": "eu",
+        "url": "/termone"
+      },
+      {
+        "term": "cupidatat",
+        "url": "/termone"
+      },
+      {
+        "term": "esse",
+        "url": "/termone"
+      }
+    ],
+    "collection": [
+      {
+        "id": 0,
+        "title": "elit",
+        "url": "/collectionone"
+      },
+      {
+        "id": 1,
+        "title": "ullamco",
+        "url": "/collectionone"
+      },
+      {
+        "id": 2,
+        "title": "aute",
+        "url": "/collectionone"
+      },
+      {
+        "id": 3,
+        "title": "magna",
+        "url": "/collectionone"
+      },
+      {
+        "id": 4,
+        "title": "laborum",
+        "url": "/collectionone"
+      },
+      {
+        "id": 5,
+        "title": "adipisicing",
+        "url": "/collectionone"
+      },
+      {
+        "id": 6,
+        "title": "nisi",
+        "url": "/collectionone"
+      }
+    ],
+    "product": [
+      {
+        "id": 0,
+        "title": "ex",
+        "brand": "tempor",
+        "price": "$16.22",
+        "img": "http://placehold.it/32x32",
+        "url": "/productone"
+      },
+      {
+        "id": 1,
+        "title": "eu",
+        "brand": "nisi",
+        "price": "$34.32",
+        "img": "http://placehold.it/32x32",
+        "url": "/productone"
+      },
+      {
+        "id": 2,
+        "title": "culpa",
+        "brand": "minim",
+        "price": "$39.10",
+        "img": "http://placehold.it/32x32",
+        "url": "/productone"
+      },
+      {
+        "id": 3,
+        "title": "dolore",
+        "brand": "sint",
+        "price": "$30.68",
+        "img": "http://placehold.it/32x32",
+        "url": "/productone"
+      },
+      {
+        "id": 4,
+        "title": "cillum",
+        "brand": "sit",
+        "price": "$21.73",
+        "img": "http://placehold.it/32x32",
+        "url": "/productone"
+      },
+      {
+        "id": 5,
+        "title": "sunt",
+        "brand": "labore",
+        "price": "$38.34",
+        "img": "http://placehold.it/32x32",
+        "url": "/productone"
+      },
+      {
+        "id": 6,
+        "title": "ipsum",
+        "brand": "qui",
+        "price": "$13.29",
+        "img": "http://placehold.it/32x32",
+        "url": "/productone"
+      }
+    ]
+  }
+]

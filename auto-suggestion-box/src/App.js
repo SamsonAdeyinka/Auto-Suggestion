@@ -19,7 +19,6 @@ function App() {
 
     const jsondata = sampleData[0];
 
-
     const filterData = (jsondata, query) => {
       if (!query) {
         return {
@@ -102,7 +101,6 @@ function App() {
                         </div>                                              
                       </li>
                     </a>
-                    
                   ))}
                 </ul>
               </div>
